@@ -1,0 +1,466 @@
+--Table 1
+
+create table Students (
+    id int,
+    first_name VARCHAR(255),
+    father_name VARCHAR(255),
+    dob date,
+    enrollment_date DATE,
+	address varchar(255),
+	constraint st primary key(id)
+);
+
+
+
+insert into Students values (1,'sham','sekar','12-06-2004','minjur')
+
+insert into Students values (2,'leo','antonydas','22-06-2004','minjur'),
+(3,'rolex','harold','24-07-2004','chennai'),(4,'das','antony','06-07-2004','trichi'),
+(5,'adaikalam','sakthi','10-10-2004','trichi'),(6,'sambath','jake','22-12-2004','trichi'),
+(7,'bejoy','james','16-08-2004','chennai'),(8,'vikram','kamal','12-02-2004','chennai'),
+(9,'amar','hari','02-09-2004','kollam'),(10,'sandhanam','krishnan','19-07-2004','chennai'),
+(11,'shalini','kannan','01-08-2004','chennai'),(12,'malini','shanmugam','08-08-2004','chennai'),
+(13,'vinayak mahadevan','mahadevan','12-06-2004','chennai'),(14,'vinayagam','mayilvaganam','15-12-2003','otanchathiram'),
+(15,'ganesh','mani','24-06-2004','chennai'),(16,'jeevan','gandhi','21-06-2004','chennai'),
+(17,'jd','durairaj','05-08-2004','chennai'),(18,'kathiresan','jeevanandham','22-06-2004','thannothu'),
+(19,'divya','raj','26-10-2004','chennai'),(20,'megala','mani','27-09-2004','chennai'),
+(21,'devi','selvam','16-08-2004','chennai'),(22,'vijay','sekar','19-10-2004','nelankarai'),
+(23,'dilli','saravana','18-05-2004','trichi'),(24,'sham','prabu','06-05-2004','minjur'),
+(25,'malini','surya','05-10-2004','thiruppur'),(26,'megna','krishnan','11-07-2004','thiruppur'),
+(27,'deva','das','24-07-2004','porur'),(28,'muthuvel pandian','pandian','12-12-2003','velacheri'),
+(29,'jr ravi','mohan','12-06-2004','anna nagar'),(30,'karthi','siva','14-08-2004','anna nagar'),
+(31,'surya','sivakumar','24-07-2004','anna nagar'),(32,'vishva','vijay','12-11-2003','tambaram'),
+(33,'jessi','joseph','20-08-2004','tambaram'),(34,'vishal','vasu','27-08-2004','madhurai'),
+(35,'manikam','mani','12-10-2004','madhurai'),(36,'madhu','raj','09-08-2004','madhurai'),
+(37,'sekar','chandru','06-05-2004','minjur'),(38,'gokul','vignesh','18-12-2004','minjur'),
+(39,'shakthi','shivan','17-07-2004','trichi'),(40,'devi','shiva','16-08-2004','kovai'),
+(41,'shanthi','shakthivel','12-06-2004','tambaram'),(42,'sathya','velu','13-10-2004','minjur'),
+(43,'raju bhai','santhanam','23-06-2004','tambaram'),(44,'danush','silambarasan','16-07-2004','nelankarai'),
+(45,'shakthi','raju','12-06-2004','minjur'),(46,'kannabiran','surya','27-07-2004','chennai'),
+(47,'fransis','john','12-07-2004','chennai'),(48,'mathew','varadharajan','24-07-2004','chennai'),
+(49,'salini','sankar','31-07-2004','minjur'),(50,'remo','ambi','08-07-2004','minjur');
+
+
+select * from Students;
+
+--Table 2
+
+create table Courses (
+    id int,
+    course_name varchar(255),
+    department_id int,
+	course_fees int,
+	constraint c1 primary key (id),
+	constraint c2 foreign key(department_id) 
+	references Departments(id)
+);
+
+
+insert into Courses values(1,'Financial Accounting',1,40000),(2,'Cultural Anthropology',2,25000),
+(3,'Renaissance Art',3,35000),(4,'General Biology',4,30000),(5,'Organic Chemistry',5,56000),
+(6,'BCA',6,50000),(7,'Criminology',7),(8,'Microeconomics',8,88000),(9,'Foundations of Education',9,15000),
+(10,'Mechanical Engineering',10,100000),(11,'English Literature',11,70000),
+(12,'Environmental Policy and Management',12,58000),(13,'Corporate Finance',13,70000),
+(14,'Physical Geography',14,30000),(15,'World History',15,30000),
+(16,'Global Politics',16,110000),(17,'Journalism Writing and Reporting',17,65000),
+(18,'Phonetics',18,44000),(19,' Calculus I',19,42000),(20,'Human Anatomy',20,97000),
+(21,'Music Theory',21,40000),(22,'Introduction to Nursing',22,80000),
+(23,'Introduction to Philosophy',23,50000),(24,'General Physics',24,60000),
+(25,'American Government',25,200000);
+
+
+select * from Courses;
+
+
+
+--Table 3
+
+create table Instructors (
+    id int,
+    Instructor_name varchar(255) not null,
+    department_id int,
+	constraint i1 primary key(id),
+	constraint i2
+    FOREIGN KEY (department_id) REFERENCES Departments(id)
+);
+
+
+
+insert into Instructors values (1,'rayan',1),(2,'raguvaran',2),(3,'manicham',3),
+(4,'lokesh kangaraj',4),(5,'atlee',5),(6,'sankar',6),(7,'murugadoss',7),(8,'sudha',8),
+(9,'krithika',9),(10,'manirathnam',10),(11,'nelson',11),(12,'perarasu',12),(13,'hari',13),
+(14,'bilal',14),(15,'harish',15),(16,'rahul',16),(17,'hemnath',17),(18,'dinesh',18),
+(19,'shalini',19),(20,'jothi',20),(21,'gayathri',21),(22,'anitha',22),(23,'devi',23),
+(24,'anjali',24),(25,'sharmila',25);
+
+select * from Instructors;
+
+--Table 4
+
+create table Departments (
+id int,
+department_name varchar(255) not null,
+constraint d1 primary key(id)
+);
+
+insert into Departments values (1,'Accounting'),(2,'Anthropology'),(3,'Art History'),
+(4,'Biology'),(5,'Chemistry'),(6,'Computer Science'),(7,'Criminal justice'),
+(8,'Economics'),(9,'Education'),(10,'Engineering'),(11,'English'),(12,'Environmental science'),
+(13,'Finance'),(14,'Geography'),(15,'History'),(16,'International Relations'),
+(17,'Journalism'),(18,'Linguistics'),(19,'Mathematics'),(20,'Medicine'),
+(21,'Music'),(22,'Nursing'),(23,'Philosophy'),(24,'Physics'),(25,'Political Science');
+
+select * from Departments;
+
+--Table 5
+
+create table Enrollments (
+    id int,
+    student_id INT,
+    course_id INT,
+    enrollment_date DATE,
+	department_id int,
+	constraint e1 primary key (id),
+	constraint e2
+    foreign key (student_id) references Students(id),
+	constraint e3
+    foreign key (course_id) references Courses(id)
+	constraint e4 foreign key(department_id) references
+    Departments(id)
+);
+
+
+insert into Enrollments values (1,1,6,'10-06-2021',6),(2,2,6,'10-06-2021',6),
+(3,3,6,'12-06-2021',6),(4,4,6,'12-06-2021',6),(5,5,1,'12-06-2021',1),(6,6,1,'12-06-2021',1),
+(7,7,1,'14-06-2021',1),(8,8,4,'14-06-2021',4),(9,9,4,'13-06-2021',4),(10,10,4,'13-06-2021',4),
+(11,11,24,'15-06-2021',24),(12,12,24,'15-06-2021',24),(13,13,24,'15-06-2021',24),(14,14,24,'15-06-2021',24),
+(15,15,21,'18-06-2021',21),(16,16,21,'18-06-2021',21),(17,17,21,'19-06-2021',21),
+(18,18,22,'20-06-2021',22),(19,19,22,'21-06-2021',22),(20,20,22,'21-06-2021',22),
+(21,21,22,'22-06-2021',22),(22,22,22,'22-06-2021',22),(23,23,17,'16-06-2021',17),(24,24,17,'16-06-2021',17),
+(25,25,17,'16-06-2021',17),(26,26,17,'16-06-2021',17),(27,27,15,'17-06-2021',15),(28,28,15,'17-06-2021',15),
+(29,29,15,'17-06-2021',15),(30,30,11,'20-06-2021',11),(31,31,11,'20-06-2021',11),(32,32,11,'20-06-2021',11),
+(33,33,11,'20-06-2021',11),(34,34,10,'23-06-2021',10),(35,35,10,'23-06-2021',10),(36,36,10,'24-06-2021',10),
+(37,37,10,'23-06-2021',10),(38,38,10,'24-06-2021',10),(39,39,10,'24-06-2021',10),(40,40,10,'23-06-2021',10),
+(41,41,7,'25-06-2021',7),(42,42,7,'25-06-2021',7),(43,43,7,'25-06-2021',7),(44,44,15,'26-06-2021'15),
+(45,45,15,'26-06-2021',15),(46,46,15,'27-06-2021',15),(47,47,16,'28-06-2021',16),
+(48,48,16,'28-06-2021',16),(49,49,9,'01-07-2021',9),(50,50,9,'01-07-2021',9);
+
+
+select * from Enrollments;
+
+
+
+
+--Table 6
+
+create table Grades (
+    id int,
+    enrollment_id int not null,
+    grade char(5) not null,
+	constraint g1 primary key(id),
+	constraint g2
+    foreign key (enrollment_id) references Enrollments(id)
+);
+
+insert into Grades values (1,1,'A'),(2,2,'A'),(3,3,'A'),(4,4,'A'),(5,5,'A'),
+(6,6,'A+'),(7,7,'A+'),(8,8,'A+'),(9,9,'B'),(10,10,'B'),(11,11,'B'),(12,12,'B'),
+(13,13,'B+'),(14,14,'B+'),(15,15,'B+'),(16,16,'A1'),(17,17,'A1'),
+(18,18,'A2'),(19,19,'A2'),(20,20,'A2'),(21,21,'A2'),(22,22,'A2'),(23,23,'B1'),
+(24,24,'B1'),(25,25,'B1'),(26,26,'B1'),(27,27,'A'),(28,28,'A'),(29,29,'A'),
+(30,30,'B+'),(31,31,'B+'),(32,32,'B+'),(33,33,'B+'),(34,34,'A2'),(35,35,'A2'),
+(36,36,'A2'),(37,37,'A2'),(38,38,'A2'),(39,39,'A2'),(40,40,'A2'),(41,41,'B'),
+(42,42,'B'),(43,43,'B'),(44,44,'C'),(45,45,'C'),(46,46,'C'),(47,47,'B+'),(48,48,'B+'),
+(49,49,'A1'),(50,50,'A1');
+
+select * from Grades;
+
+--Table 7
+
+create table Classrooms (
+    id int ,
+    classroom_name varchar(255) not null unique,
+	course_id int,
+    capacity int not null,
+	constraint class1 primary key(id)
+	constraint class2 foreign key (course_id)
+    references Courses(id)
+);
+
+update Classrooms set course_id=25 where id=25
+    
+
+insert into Classrooms values (1,'Financial Accounting Room',1,55),
+(2,'Cultural Anthropology Room',2,50),(3,'Renaissance Art Room',3,60),
+(4,'General Biology Room',4,60),(5,'Organic Chemistry Room',5,45),(6,'BCA Room',6,50),
+(7,'Criminology Room',7,30),(8,'Microeconomics Room',8,25),(9,'Foundations of Education Room',9,20),
+(10,'Mechanical Engineering Room',10,70),(11,'English Literature Room',11,40),
+(12,'Environmental Policy and Management Room',12,20),(13,'Corporate Finance Room',13,25),
+(14,'Physical Geography Room',14,35),(15,'World History Room',15,45),(16,'Global Politics Room',16,25),
+(17,'Journalism Writing and Reporting Room',17,35),(18,'Phonetics Room',18,15),(19,'Calculus I Room',19,15),
+(20,'Human Anatomy Room',20,35),(21,'Music Theory Room',21,20),(22,'Introduction to Nursing Room',22,65),
+(23,'Introduction to Philosophy Room',23,40),(24,'General Physics Room',24,50),
+(25,'American Government Room',25,25);
+
+select * from Classrooms;
+
+
+
+--Table 8
+
+
+create table CourseSchedules (
+    id int,
+    course_id int not null,
+    classroom_id int not null,
+    instructor_id int not null,
+    schedule_days varchar(255) not null,
+	schedule_time varchar(255) not null,
+	constraint cs1 primary key(id),
+	constraint cs2
+    foreign key (course_id) references Courses(id),
+	constraint cs3
+    foreign key (classroom_id) references Classrooms(id),
+	constraint cs4
+    foreign key (instructor_id) references Instructors(id)
+);
+
+insert into CourseSchedules values (1,1,1,1,'monday to friday','9am to 1pm'),
+(2,2,2,2,'wednesday to friday','8am to 12pm'),(3,3,3,3,'monday to wednesday','9am to 1pm'),
+(4,4,4,4,'monday to friday','9am to 2pm'),(5,5,5,5,'monday and friday','9am to 12pm'),
+(6,6,6,6,'monday to friday','9am to 12pm'),(7,7,7,7,'monday,tuesday and friday','1pm to 5pm'),
+(8,8,8,8,'monday to wednesday','12pm to 4pm'),(9,9,9,9,'wednesday to friday','9am to 1pm'),
+(10,10,10,10,'monday to friday','9am to 4pm'),(11,11,11,11,'monday to friday','9am to 1pm'),
+(12,12,12,12,'monday,tuesday and friday','1pm to 5pm'),
+(13,13,13,13,'wednesday to friday','9am to 1pm'),(14,14,14,14,'monday to friday','12pm to 4pm'),
+(15,15,15,15,'monday to friday','12pm to 4pm'),(16,16,16,16,'monday to wednesday','1pm to 5pm'),
+(17,17,17,17,'monday,wednesday and friday','9am to 12pm'),(18,18,18,18,'monday and saturday','9am to 3pm'),
+(19,19,19,19,'monday and saturday','9am to 3pm'),(20,20,20,20,'monday to friday','8am to 12pm'),
+(21,21,21,21,'monday and friday','9am to 1pm'),(22,22,22,22,'monday to saturday','9am to 2pm'),
+(23,23,23,23,'monday to wednesday','12pm to 4pm'),(24,24,24,24,'monday to friday','9am to 12pm'),
+(25,25,25,25,'monday to wednesday','12pm to 4pm');
+
+
+select * from CourseSchedules;
+
+
+--Table 9
+
+create table DepartmentsInstructors (
+    id int,
+    department_id int not null,
+    instructor_id int not null,
+    constraint di1 primary key(id),
+	constraint di2
+    foreign key (department_id) references Departments(id),
+	constraint di3
+    foreign key (instructor_id) references Instructors(id)
+);
+
+insert into DepartmentsInstructors values (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5),
+(6,6,6),(7,7,7),(8,8,8),(9,9,9),(10,10,10),(11,11,11),(12,12,12),(13,13,13),
+(14,14,14),(15,15,15),(16,16,16),(17,17,17),(18,18,18),(19,19,19),(20,20,20),(21,21,21),
+(22,22,22),(23,23,23),(24,24,24),(25,25,25);
+
+select * from DepartmentsInstructors;
+
+
+--Table 10
+
+create table StudentPayments (
+    id int,
+    student_id int,
+    amount int,
+    payment_date DATE,
+	constraint sp1 primary key(id),
+	constraint sp2
+    foreign key (student_id) references Students(id)
+);
+
+insert into StudentPayments values (1,1,50000,'10-06-2021'),(2,2,50000,'10-06-2021'),
+(3,3,50000,'12-06-2021'),(4,4,50000,'12-06-2021'),(5,5,40000,'12-06-2021'),
+(6,6,40000,'12-06-2021'),(7,7,40000,'14-06-2021'),(8,8,30000,'14-06-2021'),
+(9,9,30000,'13-06-2021'),(10,10,30000,'13-06-2021'),(11,11,60000,'15-06-2021'),
+(12,12,60000,'15-06-2021'),(13,13,60000,'15-06-2021'),(14,14,60000,'15-06-2021'),
+(15,15,40000,'18-06-2021'),(16,16,40000,'18-06-2021'),(17,17,40000,'19-06-2021'),
+(18,18,80000,'20-06-2021'),(19,19,80000,'21-06-2021'),(20,20,80000,'21-06-2021'),
+(21,21,80000,'22-06-2021'),(22,22,80000,'22-06-2021'),(23,23,65000,'16-06-2021'),
+(24,24,65000,'16-06-2021'),(25,25,65000,'16-06-2021'),(26,26,65000,'16-06-2021'),
+(27,27,25000,'17-06-2021'),(28,28,25000,'17-06-2021'),(29,29,25000,'17-06-2021'),
+(30,30,70000,'20-06-2021'),(31,31,70000,'20-06-2021'),(32,32,70000,'20-06-2021'),
+(33,33,70000,'20-06-2021'),(34,34,100000,'23-06-2021'),(35,35,100000,'23-06-2021'),
+(36,36,100000,'24-06-2021'),(37,37,100000,'23-06-2021'),(38,38,100000,'24-06-2021'),
+(39,39,100000,'24-06-2021'),(40,40,100000,'23-06-2021'),(41,41,95000,'25-06-2021'),
+(42,42,95000,'25-06-2021'),(43,43,95000,'25-06-2021'),(44,44,30000,'26-06-2021'),
+(45,45,30000,'26-06-2021'),(46,46,30000,'27-06-2021'),(47,47,110000,'28-06-2021'),
+(48,48,110000,'28-06-2021'),(49,49,15000,'01-07-2021'),(50,50,15000,'01-07-2021');
+
+
+select * from StudentPayments;
+
+
+--total tables
+
+select * from Students;
+select * from Courses;
+select * from Instructors;
+select * from Departments;
+select * from Enrollments;
+select * from Grades;
+select * from Classrooms;
+select * from CourseSchedules;
+select * from DepartmentsInstructors;
+select * from StudentPayments;
+
+--question 1 students name group by location like array of students name
+
+select array_agg(s.first_name) as student_names,s.address from 
+Students s group by address
+
+--question 2 students name group by course_name like array of students name
+
+select array_agg(s.first_name),c.course_name from Students s
+inner join Enrollments e on e.student_id=s.id
+inner join Courses c on c.id=e.course_id 
+group by c.course_name
+
+--question 3 which student paid fees greater than or equal to on lackh
+
+select s.first_name,s2.amount from Students s
+inner join StudentPayments s2 on s.id=S2.student_id 
+where amount>=100000 
+
+--question 4 find which student having letter s in their name 
+
+select * from Students where first_name like '%s%'
+
+
+
+--question 5 students count group by grades
+
+select count(s.first_name) as student_name_count,g.grade from Students s 
+inner join Enrollments e on e.id=s.id
+inner join Grades g on g.id=e.id
+group by g.grade
+
+
+--question 6 find students located in which classroom
+
+select array_agg(s.first_name) as student_names,
+c2.classroom_name from Students s
+inner join Enrollments e on e.id=s.id
+inner join Courses c on c.id=e.course_id
+inner join Classrooms c2 on c2.course_id=c.id
+group by c2.classroom_name order by c2.classroom_name asc;
+
+
+--question 7 show student all details
+
+select s.first_name,c.course_name,c2.classroom_name,
+d.department_name,i.instructor_name,s2.amount
+from Students s inner join Enrollments e on s.id=e.student_id
+inner join Courses c on e.course_id=c.id
+inner join Classrooms c2 on c2.course_id=c.id
+inner join Departments d on d.id=e.department_id 
+inner join DepartmentsInstructors di on d.id=di.department_id
+inner join Instructors i on di.instructor_id=i.id
+inner join StudentPayments s2 on s2.student_id=s.id
+
+--question 8 make student table ascending using first_name
+
+select * from Students order by first_name asc;
+
+
+--question 9 set student name array type group by their fees amount
+
+select array_agg(s.first_name) as students_name,s2.amount as fees_amount from Students s
+inner join Studentpayments s2 on s.id=s2.student_id
+group by s2.amount
+
+--question 10 find student name which student payed amount
+--greater than fifty thousand and less than one lakh
+
+select s.first_name as students_name,s2.amount as fees_amount from Students s
+inner join Studentpayments s2 on s.id=s2.student_id
+where s2.amount>50000 and s2.amount<100000
+
+
+--question 11 group student names with enrollment_date
+
+select array_agg(s.first_name) as student_names,e.enrollment_date from Students s
+inner join Enrollments e on s.id=e.student_id
+group by e.enrollment_date
+
+
+--question 12 find how many students and courses working in same time
+
+select count(s.first_name),array_agg(distinct(c.course_name)),cs.schedule_time 
+from Students s inner join Enrollments e on e.student_id=s.id
+inner join Courses c on c.id=e.course_id
+inner join CourseSchedules cs on c.id=cs.course_id
+group by cs.schedule_time;
+
+
+--question 13 find which instructor works in which department
+
+select i.instructor_name,d.department_name,c.course_name from
+Departments d inner join Courses c on d.id=c.department_id
+inner join Instructors i on i.department_id=d.id
+
+--question 14 find all courses and its student_count
+
+select c.course_name,count(s.first_name) as students_count from Students s 
+inner join Enrollments e on e.student_id=s.id
+right join Courses c on c.id=e.course_id group by c.course_name
+
+
+--question 15 find which classroom have highest capacity
+
+select c2.course_name,
+c.classroom_name,c.capacity from Classrooms c
+inner join Courses c2 on c.course_id=c2.id
+order by c.capacity desc limit 1
+
+
+--question 16 find which courses running in same days
+
+select array_agg(c.course_name)as course_names,
+c2.schedule_days from Courses c
+inner join CourseSchedules c2 on c.id=c2.course_id
+group by c2.schedule_days
+
+
+
+--question 17 find all course total fees 
+
+select count(s.first_name) as students_count,
+sum(sp.amount) as fees_amount,c.course_name from Students s
+inner join Enrollments e on s.id=e.student_id
+inner join Courses c on c.id=e.course_id
+inner join StudentPayments sp on s.id=sp.student_id
+group by c.course_name
+
+
+--question 18 find which students in selected course
+
+select s.first_name,c.course_name from Students s
+inner join Enrollments e on e.student_id=s.id
+inner join Courses c on c.id=e.course_id
+where c.course_name='BCA'
+
+
+
+--question 19 find departments and its courses fees
+
+select d.department_name,c.course_name,c.course_fees from
+Departments d inner join Courses c on d.id=c.department_id
+
+
+
+--question 20 find departments all details
+
+select d.department_name,c.course_name,cs.schedule_days,cs.schedule_time,
+c.course_fees
+from Departments d inner join Courses c on c.department_id=d.id
+inner join CourseSchedules cs on cs.course_id=c.id
+
+
